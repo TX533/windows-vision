@@ -1,0 +1,43 @@
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+
+# PowerShell
+*.ps1xml
+*.pssproj
+
+# Python
+__pycache__/
+*.pyc
+
+# Node.js
+node_modules/
+npm-debug.log
+
+# Logs
+*.log
+
+# Temp files
+*.tmp
+*.temp
+
+# Build outputs
+bin/
+obj/
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
