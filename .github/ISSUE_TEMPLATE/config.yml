@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: ?? Documentation
+    url: https://github.com/TX533/windows-vision#readme
+    about: Check the README for installation and usage guides
+  - name: ?? OpenClaw Discord
+    url: https://discord.gg/clawd
+    about: Get help from the OpenClaw community
+  - name: ?? Gumroad Store
+    url: https://gumroad.com/l/windowsvision
+    about: Purchase Pro or Medical editions

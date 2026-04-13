@@ -2,10 +2,14 @@
 
 **Screen capture & AI integration for Windows - 100% offline, open source**
 
+[![GitHub Release](https://img.shields.io/github/v/release/TX533/windows-vision?include_prereleases&style=for-the-badge)](https://github.com/TX533/windows-vision/releases/latest)
 [![GitHub stars](https://img.shields.io/github/stars/TX533/windows-vision?style=social)](https://github.com/TX533/windows-vision/stargazers)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Windows](https://img.shields.io/badge/Platform-Windows-0078D6?logo=windows)](https://www.microsoft.com/windows)
 [![OpenClaw](https://img.shields.io/badge/OpenClaw-Skill-6B46C1)](https://openclaw.ai)
+[![Downloads](https://img.shields.io/github/downloads/TX533/windows-vision/total?color=blue)](https://github.com/TX533/windows-vision/releases)
+[![Issues](https://img.shields.io/github/issues/TX533/windows-vision)](https://github.com/TX533/windows-vision/issues)
+[![Last Commit](https://img.shields.io/github/last-commit/TX533/windows-vision)](https://github.com/TX533/windows-vision/commits/main)
 
 > Transform your workflow with intelligent screen capture, OCR, and AI integration. Built for Windows, by Windows users.
 
