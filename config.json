@@ -1,0 +1,17 @@
+{
+    "version": "1.0.0",
+    "settings": {
+        "output_directory": "./output",
+        "default_ocr_language": "eng+spa",
+        "tesseract_path": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+        "capture_format": "png",
+        "enable_logging": true,
+        "log_level": "info"
+    },
+    "features": {
+        "screen_capture": true,
+        "ocr": true,
+        "streaming": false,
+        "automation": false
+    }
+}
