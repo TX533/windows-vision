@@ -17,14 +17,13 @@ jobs:
     - name: Setup PowerShell
       shell: pwsh
       run: |
-        Write-Host "?? Windows Vision CI Pipeline"
+        Write-Host "Windows Vision CI Pipeline"
         Write-Host "PowerShell version: $($PSVersionTable.PSVersion)"
-        Write-Host "Windows version: $(systeminfo | Select-String 'OS Name')"
         
     - name: Validate PowerShell Scripts
       shell: pwsh
       run: |
-        Write-Host "?? Validating PowerShell script syntax..."
+        Write-Host "Validating PowerShell script syntax..."
         $errorsFound = $false
         
         Get-ChildItem -Filter *.ps1 -Recurse | ForEach-Object {
@@ -34,45 +33,45 @@ jobs:
             $parseErrors = $null
             [System.Management.Automation.PSParser]::Tokenize($content, [ref]$parseErrors)
             if ($parseErrors.Count -gt 0) {
-              Write-Host "    ? Syntax errors found:" -ForegroundColor Red
-              $parseErrors | ForEach-Object { Write-Host "      - $($_.Message)" -ForegroundColor Red }
+              Write-Host "    Syntax errors found:"
+              $parseErrors | ForEach-Object { Write-Host "      - $($_.Message)" }
               $errorsFound = $true
             } else {
-              Write-Host "    ? Syntax OK" -ForegroundColor Green
+              Write-Host "    Syntax OK"
             }
           }
         }
         
         if ($errorsFound) {
-          Write-Host "? Some scripts have syntax errors" -ForegroundColor Red
+          Write-Host "Some scripts have syntax errors"
           exit 1
         } else {
-          Write-Host "? All PowerShell scripts validated successfully" -ForegroundColor Green
+          Write-Host "All PowerShell scripts validated successfully"
         }
         
     - name: Test Basic Functionality
       shell: pwsh
       run: |
-        Write-Host "?? Testing basic functionality..."
+        Write-Host "Testing basic functionality..."
         
         # Test that main scripts exist
         $requiredFiles = @("vision.ps1", "INSTALL.ps1", "README.md", "LICENSE")
         foreach ($file in $requiredFiles) {
           if (Test-Path $file) {
-            Write-Host "  ? $file exists" -ForegroundColor Green
+            Write-Host "  $file exists"
           } else {
-            Write-Host "  ? $file missing" -ForegroundColor Red
+            Write-Host "  $file missing"
             exit 1
           }
         }
         
-        # Test script help (without executing full functionality)
+        # Test script help
         Write-Host "  Testing vision.ps1 help..."
         $helpContent = Get-Content "vision.ps1" -Raw
         if ($helpContent -match "Show-Help" -or $helpContent -match "Usage:") {
-          Write-Host "    ? Help function found" -ForegroundColor Green
+          Write-Host "    Help function found"
         } else {
-          Write-Host "    ??  Help function not found" -ForegroundColor Yellow
+          Write-Host "    Help function not found"
         }
         
     - name: Create Test Report
@@ -89,9 +88,9 @@ jobs:
 $((Get-ChildItem -Filter *.ps1 -Recurse | ForEach-Object { "- $($_.Name)" }) -join "`n")
 
 ### Results:
-- PowerShell Syntax: $(if ($LASTEXITCODE -eq 0) { "? PASS" } else { "? FAIL" })
-- Required Files: ? All present
-- Basic Validation: ? Completed
+- PowerShell Syntax: $(if ($LASTEXITCODE -eq 0) { "PASS" } else { "FAIL" })
+- Required Files: All present
+- Basic Validation: Completed
 
 ### Next Steps:
 1. Manual testing on physical Windows machine
