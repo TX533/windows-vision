@@ -3,7 +3,7 @@
     "settings": {
         "output_directory": "./output",
         "default_ocr_language": "eng+spa",
-        "tesseract_path": "C:\\Program Files\\Tesseract-OCR\\tesseract.exe",
+        "tesseract_path": "tesseract",
         "capture_format": "png",
         "enable_logging": true,
         "log_level": "info"

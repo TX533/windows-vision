@@ -1,57 +1,53 @@
-# Contributing to Windows Vision
+# Contribuir a Windows Vision
 
-Thank you for your interest in contributing to Windows Vision!
+¡Gracias por tu interés en contribuir!
 
-## How to Contribute
+## Cómo contribuir
 
-### 1. Report Bugs
-- Use GitHub Issues
-- Include: Windows version, error messages
-- Steps to reproduce
+### 1. Reportar bugs
+- Usa GitHub Issues
+- Incluye: versión de Windows, mensaje de error, pasos para reproducir
 
-### 2. Suggest Features
-- Check Roadmap first
-- Explain use case
-- Suggest implementation
+### 2. Sugerir funciones
+- Revisa primero la hoja de ruta en el README
+- Explica el caso de uso
+- Si puedes, propón una implementación
 
-### 3. Submit Code
-- Fork repository
-- Create feature branch
-- Write clear commits
-- Add tests
-- Submit Pull Request
+### 3. Enviar código
+- Haz fork del repositorio
+- Crea una rama (`git checkout -b feature/mi-mejora`)
+- Commits claros
+- Abre un Pull Request
 
-## Code Structure
+## Estructura del código
 
 ```
-src/
-├── vision-simple.bat
-├── vision-fixed.ps1
-└── windows-vision-clean.ps1
+scripts/
+├── windows-vision-clean.ps1   # Script principal
+├── vision-fixed.ps1           # Script alternativo
+└── vision-simple.bat          # Atajo .bat
 
-docs/
-├── INSTALLATION.md
-└── API_REFERENCE.md
-
-tests/
-└── run-tests.ps1
+examples/
+└── USAGE.md                   # Ejemplos
 ```
 
-## Testing
+## Pruebas
 
-Before submitting:
+Antes de enviar, valida la sintaxis de tus scripts:
+
 ```powershell
-.\tests\run-tests.ps1
+Get-ChildItem -Filter *.ps1 -Recurse | ForEach-Object {
+    $errs = $null
+    [System.Management.Automation.PSParser]::Tokenize((Get-Content $_.FullName -Raw), [ref]$errs)
+    if ($errs.Count) { Write-Host "Errores en $($_.Name)" }
+}
 ```
 
-## Code Style
-- Indentation: 4 spaces
-- Naming: PascalCase functions
-- Comments: English preferred
-- Error handling: Try/Catch
+## Estilo de código
+- Indentación: 4 espacios
+- Nombres: PascalCase para funciones
+- Comentarios: inglés preferido
+- Manejo de errores: try/catch
 
-## Medical Contributions
-Special welcome from healthcare professionals!
-
-## Questions?
-Open an Issue or email: contributors@windowsvision.pro
+## Preguntas
+Abre un Issue en el repositorio.

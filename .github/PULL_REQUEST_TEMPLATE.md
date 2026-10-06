@@ -1,41 +1,33 @@
-## Description
-Please include a summary of the change and which issue is fixed.
+## Descripción
+Incluye un resumen del cambio y qué issue resuelve.
 
 Fixes # (issue)
 
-## Type of change
-Please delete options that are not relevant.
+## Tipo de cambio
+Elimina las opciones que no apliquen.
 
-- [ ] Bug fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing functionality to not work as expected)
-- [ ] Documentation update
-- [ ] Medical edition improvement
+- [ ] Corrección de bug
+- [ ] Nueva función
+- [ ] Cambio que rompe compatibilidad
+- [ ] Actualización de documentación
 
-## How Has This Been Tested?
-Please describe the tests that you ran to verify your changes.
+## ¿Cómo se probó?
+Describe las pruebas que hiciste para verificar tus cambios.
 
-- [ ] Tested on Windows 10
-- [ ] Tested on Windows 11
-- [ ] Tested OCR functionality (if applicable)
-- [ ] Tested screen capture (if applicable)
-- [ ] Tested with OpenClaw integration (if applicable)
+- [ ] Probado en Windows 10
+- [ ] Probado en Windows 11
+- [ ] Probado OCR (si aplica)
+- [ ] Probado captura de pantalla (si aplica)
 
 ## Checklist:
-- [ ] My code follows the style guidelines of this project
-- [ ] I have performed a self-review of my own code
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] My changes generate no new warnings
-- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] Mi código sigue el estilo del proyecto
+- [ ] Revisé mi propio código
+- [ ] Comenté las partes difíciles de entender
+- [ ] Actualicé la documentación correspondiente
+- [ ] Mis cambios no generan nuevas advertencias
 
-## Medical Context (if applicable):
-- [ ] No patient identifying information included
-- [ ] Follows IMSS/UMF protocols (if medical feature)
-- [ ] Maintains HIPAA compliance for medical features
+## Capturas (si aplica):
+Agrega capturas para explicar tus cambios.
 
-## Screenshots (if applicable):
-Add screenshots to help explain your changes.
-
-## Additional Notes:
-Any additional information that might be helpful.
+## Notas adicionales:
+Cualquier información adicional útil.

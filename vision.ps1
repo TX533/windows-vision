@@ -1,74 +1,43 @@
 # Windows Vision - Main Entry Point
 # Version: 1.0.0
-# Description: Screen capture and OCR tool for Windows
+# Description: Punto de entrada. Delega en scripts/windows-vision-clean.ps1
 
 param(
     [string]$Command = "help",
     [string]$Target,
     [string]$Output,
-    [switch]$Verbose
+    [string]$Lang = "eng"
 )
 
-# Configuration
 $ScriptDir = $PSScriptRoot
+$MainScript = Join-Path $ScriptDir "scripts\windows-vision-clean.ps1"
 $Version = "1.0.0"
 
 function Show-Help {
     Write-Host "Windows Vision v$Version" -ForegroundColor Cyan
     Write-Host "=========================" -ForegroundColor Cyan
     Write-Host ""
-    Write-Host "Usage: vision <command> [options]"
+    Write-Host "Este es un wrapper. El script principal es scripts\windows-vision-clean.ps1"
     Write-Host ""
-    Write-Host "Commands:"
-    Write-Host "  capture [window|region|full]  - Capture screen/window/region"
-    Write-Host "  ocr <image>                   - Extract text from image"
-    Write-Host "  stream <url>                  - Stream to OBS/RTMP"
-    Write-Host "  automate <script>             - Run automation script"
-    Write-Host "  help                          - Show this help"
-    Write-Host "  version                       - Show version"
+    Write-Host "Uso: vision <comando> [opciones]"
     Write-Host ""
-    Write-Host "Examples:"
-    Write-Host "  vision capture window Chrome"
-    Write-Host "  vision ocr screenshot.png"
-    Write-Host "  vision stream rtmp://localhost/live"
+    Write-Host "Comandos:"
+    Write-Host "  capture    - Captura de pantalla (-Full o -Region 'x,y,w,h')"
+    Write-Host "  ocr        - Extrae texto de una imagen (-InputFile <ruta>)"
+    Write-Host "  stream     - Genera guia de OBS (-SetupOBS)"
+    Write-Host "  automate   - Lista ventanas (-ListWindows)"
+    Write-Host "  help       - Muestra esta ayuda"
+    Write-Host ""
+    Write-Host "Ejemplos (script principal):"
+    Write-Host "  .\scripts\windows-vision-clean.ps1 capture -Full"
+    Write-Host "  .\scripts\windows-vision-clean.ps1 ocr -InputFile screenshot.png -Lang spa"
     Write-Host ""
 }
 
-function Show-Version {
-    Write-Host "Windows Vision v$Version" -ForegroundColor Green
+# Delegar al script principal pasando los argumentos tal cual
+if (-not (Test-Path $MainScript)) {
+    Write-Host "Error: no se encontro el script principal: $MainScript" -ForegroundColor Red
+    exit 1
 }
 
-function Invoke-Capture {
-    param([string]$Type = "full", [string]$WindowName)
-    
-    Write-Host "Capturing $Type..." -ForegroundColor Yellow
-    # Delegate to capture script
-    & "$ScriptDir\scripts\vision-fixed.ps1" -Capture -Type $Type -Window $WindowName
-}
-
-function Invoke-OCR {
-    param([string]$ImagePath)
-    
-    if (-not (Test-Path $ImagePath)) {
-        Write-Host "Error: Image not found: $ImagePath" -ForegroundColor Red
-        return
-    }
-    
-    Write-Host "Extracting text from $ImagePath..." -ForegroundColor Yellow
-    # Delegate to OCR functionality
-    & "$ScriptDir\scripts\vision-fixed.ps1" -OCR -Image $ImagePath
-}
-
-# Main command dispatcher
-switch ($Command.ToLower()) {
-    "help" { Show-Help }
-    "version" { Show-Version }
-    "capture" { Invoke-Capture -Type $Target }
-    "ocr" { Invoke-OCR -ImagePath $Target }
-    "stream" { Write-Host "Streaming to: $Target" -ForegroundColor Yellow }
-    "automate" { Write-Host "Running automation: $Target" -ForegroundColor Yellow }
-    default {
-        Write-Host "Unknown command: $Command" -ForegroundColor Red
-        Show-Help
-    }
-}
+& $MainScript @args

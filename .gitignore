@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Windows
 Thumbs.db
 Desktop.ini
@@ -42,9 +41,8 @@ build/
 
 # OS
 .DS_Store
-=======
-﻿*.png
-*.jpg
-*.txt
+
+# Capturas de salida
 /output/
->>>>>>> 91c6be23f8bd7ff65e292be71962b3ac359df68d
+*.png
+*.jpg

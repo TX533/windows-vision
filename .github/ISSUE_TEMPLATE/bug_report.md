@@ -1,32 +1,32 @@
 ---
-name: ?? Bug Report
-about: Report a bug to help us improve
+name: Bug Report
+about: Reporta un bug para ayudarnos a mejorar
 title: "[BUG] "
 labels: bug
 assignees: ""
 
 ---
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+**Describe el bug**
+Una descripción clara y concisa del problema.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Run command "..."
-2. Use option "..."
-3. See error
+**Para reproducir**
+Pasos para reproducir el comportamiento:
+1. Ejecuta el comando "..."
+2. Usa la opción "..."
+3. Observa el error
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
+**Comportamiento esperado**
+Una descripción clara de lo que esperabas que pasara.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+**Capturas**
+Si aplica, agrega capturas para explicar el problema.
 
-**Environment:**
- - Windows Version: [e.g. Windows 11 22H2]
- - PowerShell Version: [e.g. 5.1.22621.1]
- - Windows Vision Version: [e.g. v1.0.0]
- - Tesseract Version: [e.g. 5.3.0] (if using OCR)
+**Entorno:**
+ - Versión de Windows: [ej. Windows 11 22H2]
+ - Versión de PowerShell: [ej. 5.1.22621.1]
+ - Versión de Windows Vision: [ej. v1.0.0]
+ - Versión de Tesseract: [ej. 5.3.0] (si usas OCR)
 
-**Additional context**
-Add any other context about the problem here.
+**Contexto adicional**
+Cualquier otro contexto sobre el problema.

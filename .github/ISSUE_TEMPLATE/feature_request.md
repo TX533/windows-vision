@@ -1,23 +1,20 @@
 ---
-name: ?? Feature Request
-about: Suggest an idea for this project
+name: Feature Request
+about: Sugiere una idea para este proyecto
 title: "[FEATURE] "
 labels: enhancement
 assignees: ""
 
 ---
 
-**Is your feature request related to a problem? Please describe.**
-A clear and concise description of what the problem is. Ex. I'm always frustrated when [...]
+**¿Tu sugerencia está relacionada con un problema? Descríbelo.**
+Una descripción clara y concisa del problema. Ej. "Me frustra cuando [...]"
 
-**Describe the solution you'd like**
-A clear and concise description of what you want to happen.
+**Describe la solución que te gustaría**
+Una descripción clara de lo que quieres que pase.
 
-**Describe alternatives you've considered**
-A clear and concise description of any alternative solutions or features you've considered.
+**Describe alternativas que consideraste**
+Una descripción de soluciones alternativas que hayas considerado.
 
-**Medical Use Case (if applicable)**
-If this is for the medical edition, describe the clinical/healthcare context.
-
-**Additional context**
-Add any other context or screenshots about the feature request here.
+**Contexto adicional**
+Cualquier otro contexto o capturas sobre la sugerencia.

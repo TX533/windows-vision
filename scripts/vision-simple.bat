@@ -1,10 +1,12 @@
-﻿@echo off
-echo Windows Vision - Free Screen Capture Tool
+@echo off
+echo Windows Vision - Herramienta de captura de pantalla
 echo =========================================
 echo.
-echo Usage:
-echo   vision-simple.bat capture    - Capture full screen
-echo   vision-simple.bat region     - Capture specific region
+echo Uso:
+echo   vision-simple.bat capture    - Captura de pantalla completa
+echo   vision-simple.bat region     - Captura de una region
 echo.
-echo Created by: TX533 (https://github.com/TX533/windows-vision)
-echo Free version - Upgrade to Pro for advanced features
+echo Este es un atajo simple. Para todas las funciones usa:
+echo   scripts\windows-vision-clean.ps1 help
+echo.
+echo Proyecto: https://github.com/TX533/windows-vision

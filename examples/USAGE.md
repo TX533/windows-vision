@@ -1,53 +1,68 @@
-# Windows Vision - Examples
-# ========================
+# Windows Vision — Ejemplos de uso
 
-## Basic Capture
+El script principal es `scripts/windows-vision-clean.ps1`.
+
+## Captura
+
 ```powershell
-# Capture full screen
-.\vision.ps1 capture full
+# Captura de pantalla completa
+.\scripts\windows-vision-clean.ps1 capture -Full
 
-# Capture Chrome window
-.\vision.ps1 capture window "Chrome"
+# Captura de una región (x,y,ancho,alto)
+.\scripts\windows-vision-clean.ps1 capture -Region "0,0,800,600"
 
-# Capture specific region (interactive)
-.\vision.ps1 capture region
+# Guardar en una ruta específica
+.\scripts\windows-vision-clean.ps1 capture -Full -Output "mi_captura.png"
 ```
 
-## OCR Examples
-```powershell
-# Extract text from image
-.\vision.ps1 ocr screenshot.png
+Las capturas se guardan por defecto en `%USERPROFILE%\.openclaw\workspace\windows-vision-output`.
 
-# Extract with specific language
-$env:TESSERACT_LANG = "spa"
-.\vision.ps1 ocr medical_document.png
+## OCR
+
+> Requiere Tesseract instalado: `winget install Tesseract.TesseractOCR`
+
+```powershell
+# OCR sobre una imagen (idioma por defecto: eng)
+.\scripts\windows-vision-clean.ps1 ocr -InputFile screenshot.png
+
+# OCR en español
+.\scripts\windows-vision-clean.ps1 ocr -InputFile documento.png -Lang spa
+
+# OCR multi-idioma
+.\scripts\windows-vision-clean.ps1 ocr -InputFile foto.png -Lang eng+spa
 ```
 
-## Automation Example
-Create a file `automate-medical.ps1`:
+El resultado se guarda en un `.txt` junto a la imagen.
+
+## OBS
+
 ```powershell
-# Capture consultation area
-.\vision.ps1 capture region
-
-# Extract text
-$text = .\vision.ps1 ocr capture.png
-
-# Process with AI (OpenClaw integration)
-# ... AI processing code ...
+# Genera una guía de configuración + un .bat para lanzar OBS
+.\scripts\windows-vision-clean.ps1 stream -SetupOBS
 ```
 
-## Integration with OpenClaw
+## Ventanas
+
 ```powershell
-# Use as OpenClaw skill
-openclaw vision capture window "EMR System"
-openclaw vision ocr patient_chart.png
+# Lista las ventanas abiertas
+.\scripts\windows-vision-clean.ps1 automate -ListWindows
 ```
 
-## Batch File Usage (for non-PowerShell users)
+## Flujo combinado: captura + OCR
+
+```powershell
+# 1. Capturar
+.\scripts\windows-vision-clean.ps1 capture -Full
+
+# 2. Aplicar OCR a la última captura
+$last = Get-ChildItem "$env:USERPROFILE\.openclaw\workspace\windows-vision-output\*.png" |
+        Sort-Object LastWriteTime -Descending | Select-Object -First 1
+.\scripts\windows-vision-clean.ps1 ocr -InputFile $last.FullName -Lang spa
+```
+
+## Uso como .bat (para quien no usa PowerShell)
+
 ```batch
-REM Simple capture
-vision-simple.bat
-
-REM Capture with OCR
-vision-simple.bat /ocr
+REM Captura simple
+scripts\vision-simple.bat
 ```
